@@ -13,3 +13,8 @@ export type Enrollment = {
   courseId: string;
   studentId: string;
 };
+
+export type CourseWithStudents = {
+  course: Course;
+  students: Student[];
+};

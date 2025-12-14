@@ -1,5 +1,5 @@
 import { http } from "./http";
-import type { Course } from "../types/models";
+import type { Course, CourseWithStudents } from "../types/models";
 
 export type CreateCourseRequest = {
   title: string;
@@ -13,6 +13,8 @@ export type UpdateCourseRequest = {
 
 export const coursesService = {
   getAll: () => http<Course[]>("/api/courses"),
+  getAllWithStudents: () =>
+    http<CourseWithStudents[]>("/api/courses?include=students"),
   create: (body: CreateCourseRequest) =>
     http<Course>("/api/courses", {
       method: "POST",
