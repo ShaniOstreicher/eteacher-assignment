@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Backend (.NET)
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+**/*.suo
+
+# Frontend (Node)
+**/node_modules/
+**/dist/
+**/build/
+**/.vite/
+**/.next/
+**/.cache/
+
+# Env
+**/.env
+**/.env.*
