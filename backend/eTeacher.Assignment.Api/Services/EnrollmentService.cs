@@ -13,6 +13,13 @@ public class EnrollmentService : IEnrollmentService
     public IReadOnlyCollection<Enrollment> GetAll()
         => _store.Enrolments.ToArray();
 
+    public IReadOnlyCollection<Guid> GetStudentIdsByCourse(Guid courseId)
+    => _store.Enrolments
+        .Where(e => e.CourseId == courseId)
+        .Select(e => e.StudentId)
+        .Distinct()
+        .ToArray();
+
     public Enrollment? Assign(Guid courseId, Guid studentId, out AssignEnrollmentResult result)
     {
         if (!_store.Courses.ContainsKey(courseId))

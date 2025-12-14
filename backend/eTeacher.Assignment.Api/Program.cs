@@ -12,6 +12,7 @@ builder.Services.AddSingleton<InMemoryDataStore>();
 
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
 
 builder.Services.AddCors(options =>
 {

@@ -13,10 +13,6 @@ public class CoursesController : ControllerBase
 
     public CoursesController(ICourseService courses) => _courses = courses;
 
-    [HttpGet]
-    public ActionResult<IEnumerable<Course>> GetAll()
-        => Ok(_courses.GetAll());
-
     [HttpGet("{id:guid}")]
     public ActionResult<Course> GetById(Guid id)
     {
@@ -24,10 +20,23 @@ public class CoursesController : ControllerBase
         return course is null ? NotFound() : Ok(course);
     }
 
+    [HttpGet]
+    public ActionResult GetAll([FromQuery] string? include)
+    {
+        if (include?.ToLower() == "students")
+        {
+            var results = _courses.GetAllCoursesWithStudents();
+            return Ok(results);
+        }
+
+        var courses = _courses.GetAll();
+        return Ok(courses);
+    }
+
+
     [HttpPost]
     public ActionResult<Course> Create([FromBody] CourseCreateRequest request)
     {
-
         var created = _courses.Create(new Course
         {
             Title = request.Title.Trim(),

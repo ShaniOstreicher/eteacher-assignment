@@ -1,18 +1,51 @@
 ﻿using eTeacher.Assignment.Api.Data;
 using eTeacher.Assignment.Api.Models;
 using eTeacher.Assignment.Api.Services.Interfaces;
+using eTeacher.Assignment.Api.Dtos;
+
 
 namespace eTeacher.Assignment.Api.Services;
 
 public class CourseService : ICourseService
 {
     private readonly InMemoryDataStore _store;
+    private readonly IEnrollmentService _enrollments;
+    private readonly IStudentService _students;
 
-    public CourseService(InMemoryDataStore store) => _store = store;
+
+    public CourseService(
+        InMemoryDataStore store,
+        IEnrollmentService enrollments,
+        IStudentService students)
+    {
+        _store = store;
+        _enrollments = enrollments;
+        _students = students;
+    }
+
 
     public IReadOnlyCollection<Course> GetAll()
         => _store.Courses.Values.OrderBy(c => c.Title).ToArray();
 
+
+
+    public IEnumerable<CourseWithStudentsDto> GetAllCoursesWithStudents()
+    {
+        var allCourses = _store.Courses.Values.ToList();
+
+        var results = new List<CourseWithStudentsDto>();
+
+        foreach (var course in allCourses)
+        {
+            var studentIds = _enrollments.GetStudentIdsByCourse(course.Id);
+
+            var students = _students.GetByIds(studentIds);
+
+            results.Add(new CourseWithStudentsDto(course, students));
+        }
+
+        return results;
+    }
     public Course? GetById(Guid id)
         => _store.Courses.TryGetValue(id, out var course) ? course : null;
 
