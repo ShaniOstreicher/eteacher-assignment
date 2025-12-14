@@ -13,9 +13,17 @@ builder.Services.AddSingleton<InMemoryDataStore>();
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
 
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("frontend", policy =>
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod());
+});
 
 var app = builder.Build();
+
+app.UseCors("frontend");
 
 app.MapControllers();
 
