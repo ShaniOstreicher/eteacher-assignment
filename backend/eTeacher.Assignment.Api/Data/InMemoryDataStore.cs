@@ -27,8 +27,8 @@ public class InMemoryDataStore
         // One course
         var course = new Course
         {
-            Title = "Intro to Full-Stack Development",
-            Description = "A short demo course seeded for the assignment."
+            Title = "Intro to Python Development",
+            Description = "A short demo course for Python devs"
         };
 
         Courses[course.Id] = course;

@@ -1,5 +1,6 @@
-﻿using eTeacher.Assignment.Api.Data;
+﻿using eTeacher.Assignment.Api.Dtos;
 using eTeacher.Assignment.Api.Models;
+using eTeacher.Assignment.Api.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eTeacher.Assignment.Api.Controllers;
@@ -8,38 +9,26 @@ namespace eTeacher.Assignment.Api.Controllers;
 [Route("api/enrolments")]
 public class EnrolmentsController : ControllerBase
 {
-    private readonly InMemoryDataStore _store;
+    private readonly IEnrollmentService _enrollments;
 
-    public EnrolmentsController(InMemoryDataStore store) => _store = store;
+    public EnrolmentsController(IEnrollmentService enrollments) => _enrollments = enrollments;
 
     [HttpGet]
     public ActionResult<IEnumerable<Enrollment>> GetAll()
-        => Ok(_store.Enrolments);
-
-    public record CreateEnrolmentRequest(Guid CourseId, Guid StudentId);
+        => Ok(_enrollments.GetAll());
 
     [HttpPost]
     public ActionResult<Enrollment> Create([FromBody] CreateEnrolmentRequest request)
     {
-        if (!_store.Courses.ContainsKey(request.CourseId))
-            return NotFound($"Course '{request.CourseId}' was not found.");
+        var enrolment = _enrollments.Assign(request.CourseId, request.StudentId, out var result);
 
-        if (!_store.Students.ContainsKey(request.StudentId))
-            return NotFound($"Student '{request.StudentId}' was not found.");
-
-        var alreadyEnrolled = _store.Enrolments.Any(e =>
-            e.CourseId == request.CourseId && e.StudentId == request.StudentId);
-
-        if (alreadyEnrolled)
-            return Conflict("Student is already enrolled in this course.");
-
-        var enrolment = new Enrollment
+        return result switch
         {
-            CourseId = request.CourseId,
-            StudentId = request.StudentId
+            AssignEnrollmentResult.Success => CreatedAtAction(nameof(GetAll), enrolment),
+            AssignEnrollmentResult.CourseNotFound => NotFound($"Course '{request.CourseId}' was not found."),
+            AssignEnrollmentResult.StudentNotFound => NotFound($"Student '{request.StudentId}' was not found."),
+            AssignEnrollmentResult.AlreadyEnrolled => Conflict("Student is already enrolled in this course."),
+            _ => StatusCode(500)
         };
-
-        _store.Enrolments.Add(enrolment);
-        return CreatedAtAction(nameof(GetAll), enrolment);
     }
 }
