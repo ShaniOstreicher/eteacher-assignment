@@ -4,6 +4,7 @@ import { Dashboard } from "./components/Dashboard";
 function App() {
   return (
     <div className="App">
+      <div>Shani's home assiment for eTeacher Group</div>
       <Dashboard />
     </div>
   );

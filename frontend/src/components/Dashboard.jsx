@@ -48,7 +48,6 @@ export function Dashboard() {
           </button>
         ))}
       </nav>
-
       <div className="tab-content">{renderContent()}</div>
     </div>
   );
