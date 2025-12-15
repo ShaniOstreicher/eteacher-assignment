@@ -1,9 +1,3 @@
-בטח, אכין עבורך קובץ `README.md` מקצועי וממוקד, באנגלית, שיכלול את כל הנקודות החשובות שציינת, תוך שמירה על קריאות ואי-חפירה.
-
----
-
-## 📄 `README.md`
-
 # Course Management System API & Frontend
 
 This project implements a basic course management system, providing core functionalities for managing students, courses, and enrollments, along with a reporting feature that utilizes cloud storage mocking.
@@ -17,7 +11,7 @@ Follow these steps to get the project running locally.
 - [.NET 9 SDK (or later)](https://dotnet.microsoft.com/download)
 - [Node.js and npm/yarn](https://nodejs.org/) (for the React Frontend)
 
-### 1. Automated Setup (`setup.sh`)
+### 1. Application Setup (`setup.sh`)
 
 The `setup.sh` script handles all necessary dependencies for both the Backend (dotnet) and Frontend (npm).
 
@@ -31,21 +25,14 @@ The `setup.sh` script handles all necessary dependencies for both the Backend (d
     ```
     This script will install all backend dependencies (including the necessary AWS SDK for mocking) and frontend dependencies.
 
-### 2. Automated Run (`start.sh`)
+### 2. Running the Application
 
-Use the `start.sh` script to launch both the ASP.NET Core API and the React development server concurrently.
+After successfully running the setup script, start the Backend and Frontend in **two separate terminal windows** to view all logs:
 
-1.  **Grant execution permissions** to the run script (Linux/macOS only):
-    ```bash
-    chmod +x start.sh
-    ```
-2.  **Run the application:**
-    ```bash
-    ./start.sh
-    ```
-    The script will launch both services in the background. Press **Enter** in the terminal to stop both processes.
-
----
+| Layer            | Command                                           |
+| :--------------- | :------------------------------------------------ |
+| **Backend API**  | `cd backend/eTeacher.Assignment.Api ; dotnet run` |
+| **Frontend App** | `cd frontend ; npm run dev`                       |
 
 ## 💡 Architecture and Design Decisions
 
