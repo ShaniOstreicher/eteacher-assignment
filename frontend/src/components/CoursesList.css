@@ -1,9 +1,11 @@
 .courses {
-  padding: 16px;
+  padding: 20px 0;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .courses h2 {
-  margin-bottom: 12px;
+  margin: 12px 0;
 }
 
 .courseItem {
@@ -43,6 +45,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  justify-content: center;
 }
 
 .studentsList li {

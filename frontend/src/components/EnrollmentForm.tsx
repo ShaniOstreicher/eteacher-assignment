@@ -1,3 +1,3 @@
 export function EnrollmentForm() {
-  return <div>EnrollmentForm</div>>
+  return <div>EnrollmentForm</div>;
 }

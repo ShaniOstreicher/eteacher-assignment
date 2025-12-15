@@ -1,0 +1,111 @@
+.course-management-container-inline {
+  padding: 20px 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.course-management-list {
+  list-style: none;
+  padding: 0;
+}
+
+.course-management-item.new-course-item {
+  background-color: #f0fff0;
+  border: 2px dashed #28a745;
+  order: -1;
+  padding: 20px;
+}
+
+.course-management-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  transition: all 0.2s;
+}
+
+.course-management-item.editing {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+  padding: 20px;
+}
+
+.course-data {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.course-item-field {
+  margin-bottom: 10px;
+}
+
+.course-item-field label {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.9em;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.course-title-item {
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.course-description-text {
+  color: #555;
+  font-size: 0.95em;
+  display: block;
+  white-space: pre-wrap;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.inline-input,
+.inline-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.inline-textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.action-buttons button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  margin-left: 8px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.edit-button {
+  background-color: #007bff;
+}
+.save-button,
+.new-course-item .save-button {
+  background-color: #28a745;
+}
+.cancel-button {
+  background-color: #6c757d;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

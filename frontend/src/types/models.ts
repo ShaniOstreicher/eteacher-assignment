@@ -18,3 +18,13 @@ export type CourseWithStudents = {
   course: Course;
   students: Student[];
 };
+
+export type UpdateCourseRequest = {
+  title: string;
+  description?: string | null;
+};
+
+export type CreateCourseRequest = {
+  title: string;
+  description?: string | null;
+};
