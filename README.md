@@ -11,19 +11,15 @@ Follow these steps to get the project running locally.
 - [.NET 9 SDK (or later)](https://dotnet.microsoft.com/download)
 - [Node.js and npm/yarn](https://nodejs.org/) (for the React Frontend)
 
-### 1. Application Setup (`setup.sh`)
+### 1. ⚙️ Install Dependencies
 
-The `setup.sh` script handles all necessary dependencies for both the Backend (dotnet) and Frontend (npm).
+You need to run dependency installation commands for both the Backend and the Frontend separately.
 
-1.  **Grant execution permissions** to the setup script (Linux/macOS only):
-    ```bash
-    chmod +x setup.sh
-    ```
-2.  **Run the setup script** from the project root directory:
-    ```bash
-    ./setup.sh
-    ```
-    This script will install all backend dependencies (including the necessary AWS SDK for mocking) and frontend dependencies.
+| Layer            | Terminal Location                    | Command                        | Purpose                                                                |
+| :--------------- | :----------------------------------- | :----------------------------- | :--------------------------------------------------------------------- |
+| **Backend API**  | `cd backend/eTeacher.Assignment.Api` | `dotnet restore`               | Installs all core .NET dependencies.                                   |
+| **Backend API**  | `cd backend/eTeacher.Assignment.Api` | `dotnet add package AWSSDK.S3` | **Installs the necessary AWS SDK package for the S3 Mocking feature.** |
+| **Frontend App** | `cd frontend`                        | `npm install`                  | Installs all Node.js/React dependencies.                               |
 
 ### 2. Running the Application
 
@@ -69,8 +65,6 @@ The following are known trade-offs or suggested areas for future development:
 | **Component Display**         | On the Enrollments screen, implement grouping/filtering to view data **by Student** or **by Course**.                                                                                                                                                                                            |
 | **Styling**                   | Centralize and manage colors and core styling values using **CSS Variables** or JavaScript constants.                                                                                                                                                                                            |
 
-
 <img width="1899" height="982" alt="image" src="https://github.com/user-attachments/assets/355b5bf4-75ca-4d8c-a0fe-3c413a0a3869" />
 <img width="1895" height="981" alt="image" src="https://github.com/user-attachments/assets/57026578-a6b8-4df1-9477-e7993af3fe89" />
 <img width="1498" height="424" alt="image" src="https://github.com/user-attachments/assets/dc8c088f-759b-4308-a18d-8b1df7d65b87" />
-
