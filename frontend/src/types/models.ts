@@ -38,3 +38,8 @@ export type CreateCourseRequest = {
   title: string;
   description?: string | null;
 };
+
+export type ReportCreateResponse = {
+  message: string;
+  fileUrl: string;
+};

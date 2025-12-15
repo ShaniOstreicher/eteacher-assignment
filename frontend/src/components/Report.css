@@ -62,3 +62,21 @@
   line-height: 1;
   color: #333;
 }
+
+.export-button-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.aws-export-button {
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #ff9900;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

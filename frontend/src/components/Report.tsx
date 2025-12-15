@@ -2,12 +2,33 @@ import { useEnrollments } from "../queries/enrollments.queries";
 import { useStudents } from "../queries/students.queries";
 import { useCourses } from "../queries/courses.queries";
 import "./Report.css";
+import { useCreateAWSReport } from "../queries/reports.queries";
+import { useEffect } from "react";
 
 export function Report() {
-  const { data: enrollments, isLoading: isLoadingEnrollments } =
-    useEnrollments();
-  const { data: students, isLoading: isLoadingStudents } = useStudents();
-  const { data: courses, isLoading: isLoadingCourses } = useCourses();
+  const { data: enrollments } = useEnrollments();
+  const { data: students } = useStudents();
+  const { data: courses } = useCourses();
+
+  const {
+    data: AWSReportResponse,
+    mutate: createAWSReport,
+    reset,
+  } = useCreateAWSReport();
+
+  useEffect(() => {
+    if (AWSReportResponse) {
+      const message = `
+        ${AWSReportResponse.message}
+        
+        Mock URL: ${AWSReportResponse.fileUrl}
+        
+      `;
+      alert(message);
+
+      reset();
+    }
+  }, [AWSReportResponse, reset]);
 
   const widgets = [
     {
@@ -37,6 +58,11 @@ export function Report() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="export-button-wrapper">
+        <button onClick={() => createAWSReport()} className="aws-export-button">
+          Export AWS report
+        </button>
       </div>
     </div>
   );
