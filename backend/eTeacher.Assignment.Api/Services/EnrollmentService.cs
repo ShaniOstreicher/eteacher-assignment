@@ -11,10 +11,10 @@ public class EnrollmentService : IEnrollmentService
     public EnrollmentService(InMemoryDataStore store) => _store = store;
 
     public IReadOnlyCollection<Enrollment> GetAll()
-        => _store.Enrolments.ToArray();
+        => _store.Enrollments.ToArray();
 
     public IReadOnlyCollection<Guid> GetStudentIdsByCourse(Guid courseId)
-    => _store.Enrolments
+    => _store.Enrollments
         .Where(e => e.CourseId == courseId)
         .Select(e => e.StudentId)
         .Distinct()
@@ -34,7 +34,7 @@ public class EnrollmentService : IEnrollmentService
             return null;
         }
 
-        var alreadyEnrolled = _store.Enrolments.Any(e =>
+        var alreadyEnrolled = _store.Enrollments.Any(e =>
             e.CourseId == courseId && e.StudentId == studentId);
 
         if (alreadyEnrolled)
@@ -43,15 +43,15 @@ public class EnrollmentService : IEnrollmentService
             return null;
         }
 
-        var enrolment = new Enrollment
+        var enrollment = new Enrollment
         {
             CourseId = courseId,
             StudentId = studentId
         };
 
-        _store.Enrolments.Add(enrolment);
+        _store.Enrollments.Add(enrollment);
 
         result = AssignEnrollmentResult.Success;
-        return enrolment;
+        return enrollment;
     }
 }

@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace eTeacher.Assignment.Api.Controllers;
 
 [ApiController]
-[Route("api/enrolments")]
-public class EnrolmentsController : ControllerBase
+[Route("api/enrollments")]
+public class EnrollmentsController : ControllerBase
 {
     private readonly IEnrollmentService _enrollments;
     private readonly IStudentCourseAggregator _aggregator;
 
-    public EnrolmentsController(IEnrollmentService enrollments, IStudentCourseAggregator aggregator)
+    public EnrollmentsController(IEnrollmentService enrollments, IStudentCourseAggregator aggregator)
     {
         _enrollments = enrollments;
         _aggregator = aggregator;
@@ -23,13 +23,13 @@ public class EnrolmentsController : ControllerBase
         => Ok(_aggregator.GetAllEnrollmentDetails());
 
     [HttpPost]
-    public ActionResult<Enrollment> Create([FromBody] CreateEnrolmentRequest request)
+    public ActionResult<Enrollment> Create([FromBody] CreateEnrollmentRequest request)
     {
-        var enrolment = _enrollments.Assign(request.CourseId, request.StudentId, out var result);
+        var enrollment = _enrollments.Assign(request.CourseId, request.StudentId, out var result);
 
         return result switch
         {
-            AssignEnrollmentResult.Success => CreatedAtAction(nameof(GetAll), enrolment),
+            AssignEnrollmentResult.Success => CreatedAtAction(nameof(GetAll), enrollment),
             AssignEnrollmentResult.CourseNotFound => NotFound($"Course '{request.CourseId}' was not found."),
             AssignEnrollmentResult.StudentNotFound => NotFound($"Student '{request.StudentId}' was not found."),
             AssignEnrollmentResult.AlreadyEnrolled => Conflict("Student is already enrolled in this course."),

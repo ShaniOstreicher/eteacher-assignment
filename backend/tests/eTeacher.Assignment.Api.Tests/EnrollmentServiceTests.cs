@@ -15,7 +15,7 @@ public class EnrollmentServiceTests
 
         store.Courses.Clear();
         store.Students.Clear();
-        store.Enrolments.Clear();
+        store.Enrollments.Clear();
 
         var course = new Course { Id = Guid.NewGuid(), Title = "Test Course", Description = "Test" };
         var student = new Student { Id = Guid.NewGuid(), FullName = "Test Student" };

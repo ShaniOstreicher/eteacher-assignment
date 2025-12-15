@@ -2,7 +2,7 @@
 
 namespace eTeacher.Assignment.Api.Dtos;
 
-public record CreateEnrolmentRequest(
+public record CreateEnrollmentRequest(
     [Required] Guid CourseId,
     [Required] Guid StudentId
 );
