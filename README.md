@@ -50,11 +50,12 @@ The following are known trade-offs or suggested areas for future development:
 
 ### Backend Improvements
 
-| Area               | Detail & Trade-off                                                                                                                                                                                                                                                        |
-| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Data Access**    | Currently using in-memory LINQ operations. For production, these should be converted to **SQL JOINs** or optimized database queries to avoid excessive memory usage and improve performance (e.g., instead of multiple sequential list fetches in an Aggregator pattern). |
-| **Scalability**    | `GetAll` functions should enforce **pagination** (e.g., limit to max 50 items) to prevent massive data loads and ensure API stability under high traffic.                                                                                                                 |
-| **Error Handling** | Implement comprehensive global exception handling middleware and return specific HTTP status codes (e.g., 404 for not found, 400 for bad request) instead of generic error responses.                                                                                     |
+| Area                 | Detail & Trade-off                                                                                                                                                                                                                                                        |
+| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Data Access**      | Currently using in-memory LINQ operations. For production, these should be converted to **SQL JOINs** or optimized database queries to avoid excessive memory usage and improve performance (e.g., instead of multiple sequential list fetches in an Aggregator pattern). |
+| **Scalability**      | `GetAll` functions should enforce **pagination** (e.g., limit to max 50 items) to prevent massive data loads and ensure API stability under high traffic.                                                                                                                 |
+| **Error Handling**   | Implement comprehensive global exception handling middleware and return specific HTTP status codes (e.g., 404 for not found, 400 for bad request) instead of generic error responses.                                                                                     |
+| **Input Validation** | Implement Server-Side Validation on all incoming DTOs (Data Transfer Objects) for Create and Update operations (e.g., check for mandatory fields, string length, and format). This ensures data integrity and protects against malicious or incorrect client input.       |
 
 ### Frontend/UX Improvements
 
