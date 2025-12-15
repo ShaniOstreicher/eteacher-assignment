@@ -65,6 +65,9 @@ export function EnrollmentManagement() {
           isSubmitting={createMutation.isPending}
           onCreate={handleCreateEnrollment}
         />
+        <div className="assing-student-hint">
+          (Hint: Try assigning a student to a course they are already in)
+        </div>
 
         <h2>Existing Enrollments ({enrollments?.length || 0})</h2>
 

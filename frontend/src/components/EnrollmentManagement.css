@@ -11,6 +11,10 @@
   padding: 0;
 }
 
+.assing-student-hint {
+  color: #666;
+}
+
 .enrollment-management-item {
   display: flex;
   justify-content: space-between;
