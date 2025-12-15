@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CoursesList } from "./CoursesList";
 import { CourseManagement } from "./CourseManagement";
-import { EnrollmentForm } from "./EnrollmentForm";
+import { EnrollmentManagement } from "./EnrollmentManagement";
 import { EnrollmentReport } from "./EnrollmentReport";
 import { StudentsList } from "./StudentsList";
 
@@ -11,7 +11,7 @@ const TABS = {
   VIEW_COURSES: "Courses",
   VIEW_STUDENTS: "Students",
   MANAGE_COURSES: "Manage Courses",
-  ENROLLMENT_FORM: "Enrollment",
+  MANAGE_ENROLLMENT: "Enrollment",
   REPORT: "Report",
 };
 
@@ -26,8 +26,8 @@ export function Dashboard() {
         return <CourseManagement />;
       case TABS.VIEW_STUDENTS:
         return <StudentsList />;
-      case TABS.ENROLLMENT_FORM:
-        return <EnrollmentForm />;
+      case TABS.MANAGE_ENROLLMENT:
+        return <EnrollmentManagement />;
       case TABS.REPORT:
         return <EnrollmentReport />;
       default:

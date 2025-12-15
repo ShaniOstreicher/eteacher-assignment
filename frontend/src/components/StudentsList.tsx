@@ -45,7 +45,7 @@ export function StudentsList() {
                     </ul>
                   </div>
                 ) : (
-                  <p className="no-courses">Student dosent have enrolments</p>
+                  <p className="no-courses">Student dosent have enrollments</p>
                 )}
               </div>
             );

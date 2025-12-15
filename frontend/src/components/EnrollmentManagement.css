@@ -1,0 +1,120 @@
+/* src/components/EnrollmentManagement.css */
+
+.enrollment-management-container {
+  padding: 20px 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.enrollment-management-list {
+  list-style: none;
+  padding: 0;
+}
+
+.enrollment-management-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  transition: all 0.2s;
+}
+
+.enrollment-management-item.new-enrollment-form {
+  background-color: #f0fff0;
+  border: 2px dashed #28a745;
+  order: -1;
+  padding: 20px;
+}
+
+.enrollment-management-item.new-enrollment-placeholder {
+  justify-content: flex-start;
+}
+
+.enrollment-data-area {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.enrollment-item-field {
+  margin-bottom: 15px;
+}
+
+.enrollment-item-field label {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.9em;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.inline-select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.enrollment-course-title {
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.enrollment-student-name {
+  color: #007bff;
+  font-weight: 600;
+  font-size: 0.95em;
+  display: block;
+}
+
+.error-message-inline {
+  color: #dc3545;
+  font-size: 0.85em;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.action-buttons button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  margin-left: 8px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.save-button,
+.new-enrollment-form .save-button {
+  background-color: #28a745;
+}
+
+.cancel-button {
+  background-color: #6c757d;
+}
+
+.add-button {
+  background-color: #007bff;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.no-data-li {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-style: italic;
+}

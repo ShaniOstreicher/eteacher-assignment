@@ -16,6 +16,8 @@ export type StudentWithCourses = {
 };
 
 export type Enrollment = {
+  courseTitle: string;
+  studentName: string;
   courseId: string;
   studentId: string;
 };

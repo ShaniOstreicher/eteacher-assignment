@@ -87,7 +87,7 @@ export function CourseManagement() {
           <li className="no-data-li">No existing courses found.</li>
         ) : (
           <>
-            <h2>Courses Management (Add & Edit)</h2>
+            <h2>Courses Management (View & Edit)</h2>
             {courses?.map((course: Course) => (
               <CourseListItem
                 key={course.id}

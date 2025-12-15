@@ -6,6 +6,13 @@ export const studentsKeys = {
   allWithCourses: ["allWithCourses"] as const,
 };
 
+export function useStudents() {
+  return useQuery({
+    queryKey: studentsKeys.all,
+    queryFn: studentsService.getAll,
+  });
+}
+
 export function useStudentsWithCourses() {
   return useQuery({
     queryKey: studentsKeys.allWithCourses,
