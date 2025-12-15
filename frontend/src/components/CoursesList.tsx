@@ -9,7 +9,7 @@ export function CoursesList() {
     return <p>Error: {error instanceof Error ? error.message : "Failed"}</p>;
 
   return (
-    <div className="courses">
+    <div className="courses-container">
       <h2>Courses ({data?.length || 0})</h2>
 
       {data?.length === 0 ? (
@@ -19,23 +19,23 @@ export function CoursesList() {
           const { description, title, studentNames } = item;
 
           return (
-            <div key={item.id} className="courseItem">
-              <div className="courseTitle">{title}</div>
+            <div key={item.id} className="course-item">
+              <div className="course-title">{title}</div>
               {description && (
-                <div className="courseDescription">{description}</div>
+                <div className="course-description">{description}</div>
               )}
 
               {studentNames && studentNames.length > 0 ? (
-                <div className="studentsContainer">
+                <div className="students-container">
                   <h3>Students ({studentNames.length})</h3>
-                  <ul className="studentsList">
+                  <ul className="students-list">
                     {studentNames.map((s) => (
                       <li key={s}>{s}</li>
                     ))}
                   </ul>
                 </div>
               ) : (
-                <p className="noStudents">
+                <p className="no-students">
                   No students enrolled in this course.
                 </p>
               )}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CoursesList } from "./CoursesList";
 import { CourseManagement } from "./CourseManagement";
 import { EnrollmentManagement } from "./EnrollmentManagement";
-import { EnrollmentReport } from "./EnrollmentReport";
+import { Report } from "./Report";
 import { StudentsList } from "./StudentsList";
 
 import "./Dashboard.css";
@@ -29,7 +29,7 @@ export function Dashboard() {
       case TABS.MANAGE_ENROLLMENT:
         return <EnrollmentManagement />;
       case TABS.REPORT:
-        return <EnrollmentReport />;
+        return <Report />;
       default:
         return <CoursesList />;
     }
