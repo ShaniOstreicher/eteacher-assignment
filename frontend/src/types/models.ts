@@ -9,14 +9,22 @@ export type Student = {
   fullName: string;
 };
 
+export type StudentWithCourses = {
+  id: string;
+  fullName: string;
+  courseTitles: string[];
+};
+
 export type Enrollment = {
   courseId: string;
   studentId: string;
 };
 
 export type CourseWithStudents = {
-  course: Course;
-  students: Student[];
+  id: string;
+  title: string;
+  description?: string | null;
+  studentNames: string[];
 };
 
 export type UpdateCourseRequest = {

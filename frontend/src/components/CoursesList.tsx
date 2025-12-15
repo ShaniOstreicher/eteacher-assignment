@@ -16,21 +16,21 @@ export function CoursesList() {
         <p>No courses found.</p>
       ) : (
         data?.map((item) => {
-          const { course, students } = item;
+          const { description, title, studentNames } = item;
 
           return (
-            <div key={course.id} className="courseItem">
-              <div className="courseTitle">{course.title}</div>
-              {course.description && (
-                <div className="courseDescription">{course.description}</div>
+            <div key={item.id} className="courseItem">
+              <div className="courseTitle">{title}</div>
+              {description && (
+                <div className="courseDescription">{description}</div>
               )}
 
-              {students && students.length > 0 ? (
+              {studentNames && studentNames.length > 0 ? (
                 <div className="studentsContainer">
-                  <h3>Students ({students.length})</h3>
+                  <h3>Students ({studentNames.length})</h3>
                   <ul className="studentsList">
-                    {students.map((student) => (
-                      <li key={student.id}>{student.fullName}</li>
+                    {studentNames.map((s) => (
+                      <li key={s}>{s}</li>
                     ))}
                   </ul>
                 </div>

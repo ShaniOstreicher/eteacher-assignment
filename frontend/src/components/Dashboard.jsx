@@ -3,24 +3,29 @@ import { CoursesList } from "./CoursesList";
 import { CourseManagement } from "./CourseManagement";
 import { EnrollmentForm } from "./EnrollmentForm";
 import { EnrollmentReport } from "./EnrollmentReport";
+import { StudentsList } from "./StudentsList";
+
 import "./Dashboard.css";
 
 const TABS = {
-  VIEW_ENROLLMENTS: "Courses & Students",
+  VIEW_COURSES: "Courses",
+  VIEW_STUDENTS: "Students",
   MANAGE_COURSES: "Manage Courses",
   ENROLLMENT_FORM: "Enrollment",
   REPORT: "Report",
 };
 
 export function Dashboard() {
-  const [activeTab, setActiveTab] = useState(TABS.VIEW_ENROLLMENTS);
+  const [activeTab, setActiveTab] = useState(TABS.VIEW_COURSES);
 
   const renderContent = () => {
     switch (activeTab) {
-      case TABS.VIEW_ENROLLMENTS:
+      case TABS.VIEW_COURSES:
         return <CoursesList />;
       case TABS.MANAGE_COURSES:
         return <CourseManagement />;
+      case TABS.VIEW_STUDENTS:
+        return <StudentsList />;
       case TABS.ENROLLMENT_FORM:
         return <EnrollmentForm />;
       case TABS.REPORT:

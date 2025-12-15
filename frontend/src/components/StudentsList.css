@@ -1,50 +1,61 @@
-.courses {
+.students-view {
   padding: 20px 0;
   max-width: 1000px;
   margin: 0 auto;
+  font-family: inherit;
 }
 
-.courses h2 {
+.students-view h2 {
   margin: 12px 0;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #333;
 }
 
-.courseItem {
+.students-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.student-item {
   padding: 12px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  margin-bottom: 16px;
   background: #fff;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.courseItem:hover {
+.student-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.courseTitle {
+.student-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
   font-weight: 700;
   font-size: 1.1em;
-  margin-bottom: 5px;
+  color: #333;
 }
 
-.courseDescription {
-  margin-top: 4px;
-  color: #555;
-  font-size: 14px;
-  margin-bottom: 12px;
-  border-bottom: 1px dashed #eee;
-  padding-bottom: 8px;
+.courses-list-wrapper {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed #eee;
 }
 
-.studentsContainer h3 {
+.courses-header {
   font-size: 15px;
   font-weight: 600;
   color: #333;
   margin-bottom: 8px;
 }
 
-.studentsList {
+.courses-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -54,17 +65,19 @@
   justify-content: center;
 }
 
-.studentsList li {
+.course-name-item {
   background: #f0f8ff;
   border: 1px solid #cceeff;
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 13px;
+  color: #444;
 }
 
-.noStudents {
+.no-courses {
   margin-top: 10px;
   color: #999;
   font-size: 14px;
   font-style: italic;
+  padding: 0;
 }
