@@ -68,3 +68,9 @@ The following are known trade-offs or suggested areas for future development:
 | **Feature Richness**          | Add essential features like **search** and **filtering** to the student and course lists.                                                                                                                                                                                                        |
 | **Component Display**         | On the Enrollments screen, implement grouping/filtering to view data **by Student** or **by Course**.                                                                                                                                                                                            |
 | **Styling**                   | Centralize and manage colors and core styling values using **CSS Variables** or JavaScript constants.                                                                                                                                                                                            |
+
+
+<img width="1899" height="982" alt="image" src="https://github.com/user-attachments/assets/355b5bf4-75ca-4d8c-a0fe-3c413a0a3869" />
+<img width="1895" height="981" alt="image" src="https://github.com/user-attachments/assets/57026578-a6b8-4df1-9477-e7993af3fe89" />
+<img width="1498" height="424" alt="image" src="https://github.com/user-attachments/assets/dc8c088f-759b-4308-a18d-8b1df7d65b87" />
+
