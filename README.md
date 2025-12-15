@@ -38,6 +38,9 @@ The application follows a standard layered architecture with strong separation o
 
 1.  **Relational Data Model (Enrollments):** Instead of saving an array of students directly within each course object (many-to-many relationship embedded in one entity), a dedicated **Enrollment** linking entity was created. This ensures data normalization, prevents data duplication, allows for cleaner queries, and, critically, **enables the storage of additional, specific data about the relationship itself** (e.g., grade, completion status, or registration date).
 2.  **AWS S3 Mocking (Bonus):** A service (`AwsS3StorageService`) was implemented against an interface (`ICloudStorageService`). This service **simulates** the S3 API interaction by logging the request, utilizing official **`AWSSDK.S3`** types, and returning a mocked URL, thus proving SDK knowledge without requiring live credentials.
+3.  **Optimized In-Memory Storage:** The in-memory data layer (`InMemoryDataStore`) utilizes different data structures for efficiency:
+    - **Dictionary (`Courses`, `Students`):** Used for primary entities, allowing for **$O(1)$** (constant time) lookup efficiency when retrieving a single object by its ID (`Guid`).
+    - **List (`Enrollments`):** Used for the relational linking entity, representing the many-to-many relationship. This structure is flexible for iteration and filtering queries (using LINQ), which is suitable for the small data set in an in-memory solution.
 
 ---
 
