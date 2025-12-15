@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { useStudents } from "../queries/students.queries";
-import { useCourses } from "../queries/courses.queries";
+import { useStudents } from "../../queries/students.queries";
+import { useCourses } from "../../queries/courses.queries";
 import {
   useEnrollments,
   useCreateEnrollment,
-} from "../queries/enrollments.queries";
-import type { CreateEnrollmentRequest } from "../services/enrollments.service";
-import { CreateNewEnrollment } from "./CreateNewEnrollment";
-import { EnrollmentListItem } from "./EnrollmentListItem";
+} from "../../queries/enrollments.queries";
+import type { CreateEnrollmentRequest } from "../../services/enrollments.service";
+import { CreateNewEnrollment } from "../CreateNewEnrollment/CreateNewEnrollment";
+import { EnrollmentListItem } from "../EnrollmentListItem/EnrollmentListItem";
+import type { Enrollment } from "../../types/models";
 import "./EnrollmentManagement.css";
-import type { Enrollment } from "../types/models";
 
 export function EnrollmentManagement() {
   const {

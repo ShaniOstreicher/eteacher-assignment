@@ -1,9 +1,10 @@
-import { useEnrollments } from "../queries/enrollments.queries";
-import { useStudents } from "../queries/students.queries";
-import { useCourses } from "../queries/courses.queries";
-import "./Report.css";
-import { useCreateAWSReport } from "../queries/reports.queries";
 import { useEffect } from "react";
+import { useEnrollments } from "../../queries/enrollments.queries";
+import { useStudents } from "../../queries/students.queries";
+import { useCourses } from "../../queries/courses.queries";
+import { useCreateAWSReport } from "../../queries/reports.queries";
+
+import "./Report.css";
 
 export function Report() {
   const { data: enrollments } = useEnrollments();

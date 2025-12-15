@@ -2,11 +2,10 @@ import {
   useCourses,
   useCreateCourse,
   useUpdateCourse,
-} from "../queries/courses.queries";
-import type { Course, UpdateCourseRequest } from "../types/models";
-import type { CreateCourseRequest } from "../services/courses.service";
-
-import { CourseListItem } from "./CourseListItem";
+} from "../../queries/courses.queries";
+import type { Course, UpdateCourseRequest } from "../../types/models";
+import type { CreateCourseRequest } from "../../services/courses.service";
+import { CourseListItem } from "../CourseListItem/CourseListItem";
 import "./CourseManagement.css";
 
 type HandleCancel = () => void;

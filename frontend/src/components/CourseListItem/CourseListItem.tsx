@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FaEdit, FaCheck, FaTimes, FaPlus } from "react-icons/fa";
-import "./CourseManagement.css";
+import "../CourseManagement/CourseManagement.css";
 
-import type { Course } from "../types/models";
+import type { Course } from "../../types/models";
 import type {
   CreateCourseRequest,
   UpdateCourseRequest,
-} from "../services/courses.service";
+} from "../../services/courses.service";
 
 interface CourseListItemProps {
   course: Course | (CreateCourseRequest & { id: string });

@@ -1,3 +1,5 @@
+// --- CORE ENTITIES ---
+
 export type Course = {
   id: string;
   title: string;
@@ -9,12 +11,6 @@ export type Student = {
   fullName: string;
 };
 
-export type StudentWithCourses = {
-  id: string;
-  fullName: string;
-  courseTitles: string[];
-};
-
 export type Enrollment = {
   courseTitle: string;
   studentName: string;
@@ -22,22 +18,20 @@ export type Enrollment = {
   studentId: string;
 };
 
-export type CourseWithStudents = {
-  id: string;
-  title: string;
-  description?: string | null;
+// --- COMPOSITE TYPES ---
+
+export type StudentWithCourses = Student & {
+  courseTitles: string[];
+};
+
+export type CourseWithStudents = Course & {
   studentNames: string[];
 };
 
-export type UpdateCourseRequest = {
-  title: string;
-  description?: string | null;
-};
+// --- REQUEST / RESPONSE DTOs ---
 
-export type CreateCourseRequest = {
-  title: string;
-  description?: string | null;
-};
+export type CreateCourseRequest = Omit<Course, "id">;
+export type UpdateCourseRequest = CreateCourseRequest;
 
 export type ReportCreateResponse = {
   message: string;

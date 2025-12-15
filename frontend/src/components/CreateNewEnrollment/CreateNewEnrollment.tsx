@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaTimes, FaCheck } from "react-icons/fa";
-import type { CreateEnrollmentRequest } from "../services/enrollments.service";
-import "./EnrollmentManagement.css";
+import type { CreateEnrollmentRequest } from "../../services/enrollments.service";
+import "../EnrollmentManagement/EnrollmentManagement.css";
 
 interface Option {
   id: string;

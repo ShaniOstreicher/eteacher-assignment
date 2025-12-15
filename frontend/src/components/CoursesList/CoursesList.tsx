@@ -1,4 +1,4 @@
-import { useCoursesWithStudents } from "../queries/courses.queries";
+import { useCoursesWithStudents } from "../../queries/courses.queries";
 import "./CoursesList.css";
 
 export function CoursesList() {

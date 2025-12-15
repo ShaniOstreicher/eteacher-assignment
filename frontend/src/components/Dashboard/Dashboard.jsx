@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { CoursesList } from "./CoursesList";
-import { CourseManagement } from "./CourseManagement";
-import { EnrollmentManagement } from "./EnrollmentManagement";
-import { Report } from "./Report";
-import { StudentsList } from "./StudentsList";
+import { CoursesList } from "../CoursesList/CoursesList";
+import { CourseManagement } from "../CourseManagement/CourseManagement";
+import { EnrollmentManagement } from "../EnrollmentManagement/EnrollmentManagement";
+import { Report } from "../Report/Report";
+import { StudentsList } from "../StudentsList/StudentsList";
 
 import "./Dashboard.css";
 

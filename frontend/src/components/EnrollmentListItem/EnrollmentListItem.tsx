@@ -1,6 +1,7 @@
 import React from "react";
-import "./EnrollmentManagement.css";
-import type { Enrollment } from "../types/models";
+import type { Enrollment } from "../../types/models";
+
+import "../CourseManagement/CourseManagement.css";
 
 interface EnrollmentListItemProps {
   enrollment: Enrollment;

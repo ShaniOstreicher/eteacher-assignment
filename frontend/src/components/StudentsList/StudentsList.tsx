@@ -1,6 +1,6 @@
 import React from "react";
-import type { StudentWithCourses } from "../types/models";
-import { useStudentsWithCourses } from "../queries/students.queries";
+import type { StudentWithCourses } from "../../types/models";
+import { useStudentsWithCourses } from "../../queries/students.queries";
 
 import "./StudentsList.css";
 
@@ -11,7 +11,7 @@ export function StudentsList() {
   if (isError)
     return (
       <p>
-        error:{" "}
+        error:
         {error instanceof Error ? error.message : "failed to load students"}
       </p>
     );
