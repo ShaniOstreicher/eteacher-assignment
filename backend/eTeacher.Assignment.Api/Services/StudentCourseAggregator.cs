@@ -1,6 +1,4 @@
-﻿// SERVICES/StudentCourseAggregator.cs
-
-using eTeacher.Assignment.Api.Courses;
+﻿using eTeacher.Assignment.Api.Courses;
 using eTeacher.Assignment.Api.Data;
 using eTeacher.Assignment.Api.Dtos;
 using eTeacher.Assignment.Api.Services.Interfaces;
