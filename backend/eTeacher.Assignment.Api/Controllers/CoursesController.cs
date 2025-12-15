@@ -10,8 +10,13 @@ namespace eTeacher.Assignment.Api.Controllers;
 public class CoursesController : ControllerBase
 {
     private readonly ICourseService _courses;
+    private readonly IStudentCourseAggregator _aggregator;
 
-    public CoursesController(ICourseService courses) => _courses = courses;
+    public CoursesController(ICourseService courses, IStudentCourseAggregator aggregator)
+    {
+        _courses = courses;
+        _aggregator = aggregator;
+    }
 
     [HttpGet("{id:guid}")]
     public ActionResult<Course> GetById(Guid id)
@@ -25,7 +30,7 @@ public class CoursesController : ControllerBase
     {
         if (include?.ToLower() == "students")
         {
-            var results = _courses.GetAllCoursesWithStudents();
+            var results = _aggregator.GetCoursesWithStudentDetails();
             return Ok(results);
         }
 

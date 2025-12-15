@@ -1,10 +1,9 @@
-﻿using eTeacher.Assignment.Api.Models;
-
-namespace eTeacher.Assignment.Api.Dtos;
-
-public record CourseWithStudentsDto(
-    Course Course,
-    IReadOnlyCollection<Student> Students
-);
-
-
+﻿namespace eTeacher.Assignment.Api.Courses
+{
+    public class CourseWithStudentsDto
+    {
+        public Guid Id { get; set; }
+        public string? Description { get; set; }
+        public List<string> StudentNames { get; set; } = new List<string>();
+    }
+}

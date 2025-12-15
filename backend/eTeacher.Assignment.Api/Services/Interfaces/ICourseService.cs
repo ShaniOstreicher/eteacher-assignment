@@ -7,7 +7,6 @@ public interface ICourseService
 {
     IReadOnlyCollection<Course> GetAll();
     Course? GetById(Guid id);
-    IEnumerable<CourseWithStudentsDto> GetAllCoursesWithStudents();
     Course Create(Course course);
     bool Update(Guid id, Course updated);
     bool Delete(Guid id);

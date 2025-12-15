@@ -27,25 +27,6 @@ public class CourseService : ICourseService
     public IReadOnlyCollection<Course> GetAll()
         => _store.Courses.Values.OrderBy(c => c.Title).ToArray();
 
-
-
-    public IEnumerable<CourseWithStudentsDto> GetAllCoursesWithStudents()
-    {
-        var allCourses = _store.Courses.Values.ToList();
-
-        var results = new List<CourseWithStudentsDto>();
-
-        foreach (var course in allCourses)
-        {
-            var studentIds = _enrollments.GetStudentIdsByCourse(course.Id);
-
-            var students = _students.GetByIds(studentIds);
-
-            results.Add(new CourseWithStudentsDto(course, students));
-        }
-
-        return results;
-    }
     public Course? GetById(Guid id)
         => _store.Courses.TryGetValue(id, out var course) ? course : null;
 
