@@ -38,7 +38,6 @@ public class CoursesController : ControllerBase
         return Ok(courses);
     }
 
-
     [HttpPost]
     public ActionResult<Course> Create([FromBody] CourseCreateRequest request)
     {

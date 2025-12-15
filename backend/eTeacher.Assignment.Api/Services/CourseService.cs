@@ -3,26 +3,16 @@ using eTeacher.Assignment.Api.Models;
 using eTeacher.Assignment.Api.Services.Interfaces;
 using eTeacher.Assignment.Api.Dtos;
 
-
 namespace eTeacher.Assignment.Api.Services;
 
 public class CourseService : ICourseService
 {
     private readonly InMemoryDataStore _store;
-    private readonly IEnrollmentService _enrollments;
-    private readonly IStudentService _students;
 
-
-    public CourseService(
-        InMemoryDataStore store,
-        IEnrollmentService enrollments,
-        IStudentService students)
+    public CourseService(InMemoryDataStore store)
     {
         _store = store;
-        _enrollments = enrollments;
-        _students = students;
     }
-
 
     public IReadOnlyCollection<Course> GetAll()
         => _store.Courses.Values.OrderBy(c => c.Title).ToArray();

@@ -8,14 +8,10 @@ namespace eTeacher.Assignment.Api.Services
     public class StudentService : IStudentService
     {
         private readonly InMemoryDataStore _store;
-        private readonly IEnrollmentService _enrollmentService;
 
-        public StudentService(
-            InMemoryDataStore store,
-            IEnrollmentService enrollmentService)
+        public StudentService(InMemoryDataStore store)
         {
             _store = store;
-            _enrollmentService = enrollmentService;
         }
 
         public Student? GetById(Guid id)

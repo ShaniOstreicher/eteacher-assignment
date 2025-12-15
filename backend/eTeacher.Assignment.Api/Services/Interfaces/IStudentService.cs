@@ -4,6 +4,6 @@ using eTeacher.Assignment.Api.Students;
 public interface IStudentService
 {
     IReadOnlyCollection<Student> GetAll();
-      Student? GetById(Guid id);
+    Student? GetById(Guid id);
     IReadOnlyCollection<Student> GetByIds(IEnumerable<Guid> ids);
 }
