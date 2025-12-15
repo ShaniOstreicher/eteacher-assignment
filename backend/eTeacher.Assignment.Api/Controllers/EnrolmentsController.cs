@@ -10,12 +10,17 @@ namespace eTeacher.Assignment.Api.Controllers;
 public class EnrolmentsController : ControllerBase
 {
     private readonly IEnrollmentService _enrollments;
+    private readonly IStudentCourseAggregator _aggregator;
 
-    public EnrolmentsController(IEnrollmentService enrollments) => _enrollments = enrollments;
+    public EnrolmentsController(IEnrollmentService enrollments, IStudentCourseAggregator aggregator)
+    {
+        _enrollments = enrollments;
+        _aggregator = aggregator;
+    }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Enrollment>> GetAll()
-        => Ok(_enrollments.GetAll());
+    public ActionResult<IEnumerable<EnrollmentDetailsDto>> GetAll()
+        => Ok(_aggregator.GetAllEnrollmentDetails());
 
     [HttpPost]
     public ActionResult<Enrollment> Create([FromBody] CreateEnrolmentRequest request)

@@ -84,5 +84,29 @@ namespace eTeacher.Assignment.Api.Services
                 })
                 .ToList();
         }
+
+        public IEnumerable<EnrollmentDetailsDto> GetAllEnrollmentDetails()
+        {
+            var allEnrollments = _enrollmentService.GetAll();
+            var allCoursesMap = _courseService.GetAll().ToDictionary(c => c.Id, c => c.Title);
+            var allStudentsMap = _studentService.GetAll().ToDictionary(s => s.Id, s => s.FullName);
+
+            return allEnrollments
+        .Select(e =>
+        {
+            var courseTitle = allCoursesMap.GetValueOrDefault(e.CourseId) ?? "Unknown Course";
+            var studentName = allStudentsMap.GetValueOrDefault(e.StudentId) ?? "Unknown Student";
+
+            return new EnrollmentDetailsDto
+            {
+                CourseId = e.CourseId,
+                CourseTitle = courseTitle,
+                StudentId = e.StudentId,
+                StudentName = studentName
+            };
+        })
+                .OrderBy(d => d.CourseTitle)
+                .ToList();
+        }
     }
 }
