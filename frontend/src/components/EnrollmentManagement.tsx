@@ -28,8 +28,6 @@ export function EnrollmentManagement() {
   const courseOptions =
     courses?.map((c) => ({ id: c.id, name: c.title })) || [];
 
-  const [isAddingNew, setIsAddingNew] = useState(false);
-
   if (isLoadingEnrollments || isLoadingStudents || isLoadingCourses) {
     return <div className="loading">Loading enrollments data...</div>;
   }
@@ -49,7 +47,6 @@ export function EnrollmentManagement() {
     createMutation.mutate(formData, {
       onSuccess: () => {
         alert(`Enrollment created successfully!`);
-        setIsAddingNew(false);
       },
       onError: (error: Error) => {
         alert(`Enrollment failed: ${error.message}`);
@@ -60,12 +57,12 @@ export function EnrollmentManagement() {
   return (
     <div className="enrollment-management-container">
       <ul className="enrollment-management-list">
+        <h2>Assign Student to Course</h2>
+
         <CreateNewEnrollment
           studentOptions={studentOptions}
           courseOptions={courseOptions}
           isSubmitting={createMutation.isPending}
-          isAddingNew={isAddingNew}
-          onToggleAdd={() => setIsAddingNew(!isAddingNew)}
           onCreate={handleCreateEnrollment}
         />
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPlus, FaTimes, FaCheck } from "react-icons/fa";
+import { FaTimes, FaCheck } from "react-icons/fa";
 import type { CreateEnrollmentRequest } from "../services/enrollments.service";
 import "./EnrollmentManagement.css";
 
@@ -12,8 +12,6 @@ interface CreateNewEnrollmentProps {
   studentOptions: Option[];
   courseOptions: Option[];
   isSubmitting: boolean;
-  isAddingNew: boolean;
-  onToggleAdd: () => void;
   onCreate: (formData: CreateEnrollmentRequest) => void;
 }
 
@@ -21,8 +19,6 @@ export function CreateNewEnrollment({
   studentOptions,
   courseOptions,
   isSubmitting,
-  isAddingNew,
-  onToggleAdd,
   onCreate,
 }: CreateNewEnrollmentProps) {
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");
@@ -46,34 +42,11 @@ export function CreateNewEnrollment({
   const handleCancel = () => {
     setSelectedStudentId("");
     setSelectedCourseId("");
-    onToggleAdd();
   };
-
-  if (!isAddingNew) {
-    return (
-      <li className="enrollment-management-item new-enrollment-placeholder">
-        <div className="enrollment-data-area">
-          <h2 style={{ margin: 0 }}>Add New Enrollment</h2>
-        </div>
-        <div className="action-buttons">
-          <button
-            onClick={onToggleAdd}
-            className="add-button"
-            title="Add Enrollment"
-            disabled={!hasOptions}
-          >
-            <FaPlus />
-          </button>
-        </div>
-      </li>
-    );
-  }
 
   return (
     <li className={`enrollment-management-item new-enrollment-form`}>
       <div className="enrollment-data-area form-layout">
-        <h2 style={{ margin: "0 0 15px 0" }}>Assign Student to Course</h2>
-
         <div className="enrollment-item-field select-field">
           <label htmlFor="student-select">Select Student*:</label>
           <select
