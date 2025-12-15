@@ -78,6 +78,7 @@ namespace eTeacher.Assignment.Api.Services
                     {
                         Id = course.Id,
                         Description = course.Description,
+                        Title = course.Title,
                         StudentNames = studentNames
                     };
                 })

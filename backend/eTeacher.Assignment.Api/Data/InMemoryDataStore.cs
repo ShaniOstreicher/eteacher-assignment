@@ -66,6 +66,9 @@ public class InMemoryDataStore
         Enrolments.Add(new Enrollment { CourseId = coursePython.Id, StudentId = s1.Id });
         Enrolments.Add(new Enrollment { CourseId = coursePython.Id, StudentId = s2.Id });
         Enrolments.Add(new Enrollment { CourseId = coursePython.Id, StudentId = s3.Id });
+        Enrolments.Add(new Enrollment { CourseId = coursePython.Id, StudentId = s4.Id });
+        Enrolments.Add(new Enrollment { CourseId = coursePython.Id, StudentId = s5.Id });
+        Enrolments.Add(new Enrollment { CourseId = coursePython.Id, StudentId = s6.Id });
         Enrolments.Add(new Enrollment { CourseId = coursePython.Id, StudentId = s10.Id });
         Enrolments.Add(new Enrollment { CourseId = coursePython.Id, StudentId = s11.Id });
 
@@ -76,6 +79,9 @@ public class InMemoryDataStore
         Enrolments.Add(new Enrollment { CourseId = courseReact.Id, StudentId = s8.Id });
         Enrolments.Add(new Enrollment { CourseId = courseReact.Id, StudentId = s9.Id });
         Enrolments.Add(new Enrollment { CourseId = courseReact.Id, StudentId = s12.Id });
+
+        Enrolments.Add(new Enrollment { CourseId = courseDatabase.Id, StudentId = s3.Id });
+
 
     }
 }

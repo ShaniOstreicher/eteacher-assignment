@@ -21,7 +21,7 @@ public class StudentsController : ControllerBase
     [HttpGet]
     public ActionResult GetAll([FromQuery] string? include)
     {
-        if (include?.ToLower() == "students")
+        if (include?.ToLower() == "courses")
         {
             var studentsWithCourses = _aggregator.GetStudentsWithCourseDetails();
             return Ok(studentsWithCourses);
