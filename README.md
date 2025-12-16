@@ -2,6 +2,11 @@
 
 This project implements a basic course management system, providing core functionalities for managing students, courses, and enrollments, along with a reporting feature that utilizes cloud storage mocking.
 
+## 🎥 Solution Walkthrough
+
+A short Loom video walkthrough of the solution is available here, covering the overall architecture, key design decisions, and a brief demo of the main features:  
+👉 **[[Loom Video Link](https://www.loom.com/share/09df959d98084f91b1a6a67d7013c7ed)]**
+
 ## 🚀 Setup Instructions
 
 Follow these steps to get the project running locally.
